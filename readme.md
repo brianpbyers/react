@@ -7,6 +7,8 @@ Market: SF
 
 ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
+<!--Actually 11:30 -->
+
 <!-- 10:35 5 minutes -->
 
 <!--Hook: So at this point, you're familiar with Angular which is one of many front-end frameworks.  Today, we'll talk about React, another incredibly popular front-end framework maintained mainly by Facebook. It fits with the philosophy that Taylor at Spruce mentioned over the weekend: it is a tool that does a lot of front-end work for you so you don't have to reinvent the wheel.  For those interested in putting it into your project 4 after this class, please follow up with me.-->
@@ -34,6 +36,7 @@ React is a library that Facebook invented to help build custom HTML elements. Re
 * **Write** client-side applications in JavaScript
 * **Know** Gulp as a build tool
 
+<!--Actually 11:34 -->
 <!--10:40 5 minutes -->
 
 ## From Docs
@@ -86,6 +89,7 @@ To view JSX appropriately in Sublime:
 
 <!--Half-mast-->
 
+<!--Actually 11:45 -->
 <!--10:50 20 minutes -->
 
 ## React Components
@@ -124,6 +128,8 @@ class HelloWorld extends React.Component {
 }
 export default HelloWorld
 ```
+
+<!--Actually 11:51 -->
 
 ### The Virtual DOM
 
@@ -164,6 +170,8 @@ ReactDOM.render(
 >Note: It's a good idea to use [`"use strict"`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) as it is a restricted variant of JavaScript that eliminates some of JavaScript's silent errors by changing them to throw errors.
 
 <!-- Let devs do this now with their table-partner's name -->
+
+<!-- Actually 12:19-->
 
 ### Mad Props
 
@@ -224,7 +232,9 @@ ReactDOM.render(
 )
 ```
 
+<!-- Actually 12:27 -->
 <!--11:10 15 minutes -->
+<!--Actually 1:32 -->
 <!-- Turn over to devs after they walk through a general plan of attack -->
 
 ### Challenge: Greet the day!
@@ -252,6 +262,7 @@ ReactDOM.render(
 
 -->
 
+<!--Actually 1:45 -->
 <!--11:25 10 minutes -->
 <!-- Half-mast -->
 
@@ -284,6 +295,8 @@ ReactDOM.render(
 )
 ```
 
+<!--Actually 2:25 -->
+
 ### Nested Components
 
 What if we want to add text just above our Image, but want it also to be wrapped in the anchor tag so it is clickable, like the image?
@@ -315,6 +328,8 @@ class ProfilePic extends React.Component {
 
 ```
 
+<!--Actually 2:31 -->
+
 <!-- 11:35 5 minutes -->
 <!-- Turn over to devs -->
 
@@ -326,6 +341,8 @@ class ProfilePic extends React.Component {
 <!-- 11:40 10 minutes -->
 
 ## Exercise: A Blog Post
+
+<!--Actually 2:41 when turning over to devs -->
 
 Let's practice what we've learned so far by building a `Post` component for our blog.
 
@@ -406,6 +423,8 @@ class Post extends React.Component {
 
 </details>
 
+<!--Actually 3:02 -- break time -->
+<!--Actually 3:16 -->
 ### Embedded Components
 
 * What if there was a comment component we could abstract some of this logic to?
@@ -413,6 +432,7 @@ class Post extends React.Component {
 * Let's reference a comment using an embedded `<Comment/>` component inside of PostView's render method.
 
 <!--12:00 15 minutes -->
+<!-- At this point, figured a code-along was better than nothing--they were fried -->
 
 ### Challenge: Add Embedded Comments To Blog
 
@@ -453,6 +473,7 @@ class Comment extends React.Component {
 ```
 -->
 
+<!--Actually 3:29 -->
 <!--12:15 10 minutes -->
 
 ## State
