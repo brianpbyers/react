@@ -265,7 +265,7 @@ ReactDOM.render(
 
 What if we don't know exactly what props we're going to get but we want to pass them to the element? We can do this with something new in ES6 called a [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator).
 
-For example, let's say we want to create a `ProfilePic` component that is a clickable image tag and we want to be able to pass all our new props into the anchor tag.
+For example, let's say we want to create a `ProfilePic` component that is a clickable image tag, and we want to be able to pass all our new props into the anchor tag.
 
 ```js
 class ProfilePic extends React.Component {
@@ -281,7 +281,7 @@ class ProfilePic extends React.Component {
 
 `{...this.props}` is where all props we pass in will live. So now we can set an `href` and `class` on our element by just passing them in!
 
->Note because `class` is a reserved word in ES6 we have to use `className` instead.
+>Note that because `class` is a reserved word in ES6, we have to use `className` instead.
 
 ```js
 ReactDOM.render(
@@ -473,15 +473,13 @@ class Comment extends React.Component {
 
 ## State
 
-We already went over properties.
+So that sums up properties - but `prop` can only be changed by a parent. So, what do we do if our component needs to trigger an update for its parent or the application as a whole? That's where **state** comes in.
 
-* The thing about props is that they can only be changed by a parent.
-* So, what do we do if our component needs to trigger an update for its parent or the application as a whole? That's where **state** comes in.
-* State is similar to props, but is *meant to be changed*.
-* Like properties, we can access state values using `this.state.val`.
-* State is good when the applications needs to "respond to user input, a server request, or the passage of time" (all events).
-* Setting up and modifying state is not as straightforward as properties and instead requires multiple methods.
-* More on what [should & shouldn't go in state](http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#what-should-go-in-state).
+State is similar to props, state is *meant to be changed*. We can access state values using `this.state.val`.
+
+* State is good when the applications needs to respond to user input, a server request, or the passage of time (all events).
+* Setting up and modifying state is not as straightforward as properties, and instead requires multiple methods.
+* More on what should & shouldn't go in state [can be found here]](http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#what-should-go-in-state).
 
 Let's modify our earlier `HelloWorld` example to be a new `MoodTracker` component. There will be a mood displayed and  eventually a user will click a button to indicate on a scale of 1-10 how much of that mood they are feeling.
 
@@ -533,11 +531,7 @@ const MoodTracker = React.createClass({
 
 Whenever we run `.setState`, our component runs a **diff** between the current DOM and the virtual DOM node to update the state of the DOM in as few manipulations as possible.
 
-* Only replaces the current DOM with parts that have changed.
-* This is super important! Using React, we only change parts of the DOM that need to be changed.
-  * Implications on performance.
-  * We **do not** re-render the entire component like we have been in class.
-  * This is one of React's core advantages
+Note that this only replaces the current DOM with parts that have changed. This is super important! We **do not** re-render the entire component. This is one of React's core advantages.
 
 <!-- These are challenges for folks who want to take React further.  Solutions are available in the solutions branch -->
 
