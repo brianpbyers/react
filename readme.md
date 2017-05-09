@@ -84,7 +84,7 @@ To view JSX appropriately in Sublime:
 
 `cd` into `starter-code`
 
-* Contains a simple Express server that we'll use in today's class.
+* The directory contains a simple Express server that we'll use in today's class.
 * Look at the `readme.md` file at the root of the application to see how to get it setup.
 
 <!--Half-mast-->
@@ -98,14 +98,9 @@ To view JSX appropriately in Sublime:
 
 The basic unit you'll be working with in ReactJS is a **component**.
 
-* Using "components" is a pretty different way of approaching web development.
+Using "components" is a pretty different way of approaching web development. It's common to separate HTML, CSS and Javascript from one another - with components, there is more integration and less separation of these languages. Instead, the pattern is to organize a web app into small, reusable components that encompass their own content, presentation and behavior.
 
-It is common to separate HTML, CSS and Javascript from one another.
-
-* With components, there is more integration and less separation of HTML CSS and JS.
-* Instead, the pattern is to organize a web app into small, reusable components that encompass their own content, presentation and behavior.
-
-In `app/components/hello-world.jsx` let's create a super simple component that just says, "Hello World". In order to do this we're going to write in ES6 as it makes the syntax easier (and yes, we are consciously not using semicolons).
+In `app/components/hello-world.jsx`, let's create a super simple component that just says, "Hello World". In order to do this we're going to write in ES6, as it makes the syntax easier (and yes, we are consciously not using semicolons).
 
 ```js
 class HelloWorld extends React.Component {
@@ -114,7 +109,7 @@ class HelloWorld extends React.Component {
   }
 }
 ```
-From above, we can see that we are creating a new Component class that is inheriting from `React.Component`. It has one function - `render`. React expects `render` to be defined as that is the function that will get called when it is being rendered to the DOM. Note that we are using ES6's [method definition syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions#Description).
+From above, we can see that we are creating a new Component class that is inheriting from `React.Component`. It has one function - `render`. React expects `render` to be defined, as that is the function that will get called when it is being rendered to the DOM. Note that we are using ES6's [method definition syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions#Description).
 
 Don't forget to require `React` and [export](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) your new component!
 
@@ -134,8 +129,8 @@ export default HelloWorld
 ### The Virtual DOM
 
 * Every component has, at a minimum, a render method that generates a Virtual DOM node to be added to the actual DOM.
-* A Virtual DOM is just like a regular ol' DOM node, but it's not yet attached to the DOM. Try typing `var photo = new Image` in the console; that `photo` is part of the virtual DOM.
-* For React, the virtual DOM is a staging area for changes that will eventually be implemented.
+* A Virtual DOM is just like a regular ol' DOM node, but it's not yet attached to the DOM. For example - try typing `var photo = new Image` in the console. `photo` is now part of the virtual DOM, even though it doesn't appear in our actual DOM.
+* For React, the virtual DOM is used as a staging area for changes that will eventually be implemented.
 * The contents of this node are defined in the method's return statement using JSX.
 
 So we've created the template for our component. But how do we actually render it?
