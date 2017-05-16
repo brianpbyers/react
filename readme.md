@@ -479,7 +479,7 @@ State is similar to props, state is *meant to be changed*. We can access state v
 
 * State is good when the applications needs to respond to user input, a server request, or the passage of time (all events).
 * Setting up and modifying state is not as straightforward as properties, and instead requires multiple methods.
-* More on what should & shouldn't go in state [can be found here]](http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#what-should-go-in-state).
+* More on what should & shouldn't go in state [can be found here](http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#what-should-go-in-state).
 
 Let's modify our earlier `HelloWorld` example to be a new `MoodTracker` component. There will be a mood displayed and  eventually a user will click a button to indicate on a scale of 1-10 how much of that mood they are feeling.
 
