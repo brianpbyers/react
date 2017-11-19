@@ -457,15 +457,6 @@ const MoodTracker = React.createClass({
 
 -->
 
-## Challenge: I Like!
-
-Let's create a state for our earlier blog example. We want to be able to edit the body of our post. Tip: update the component to the `React.createClass` syntax.
-
-1. Initialize a `likes` state for our `Post` component that defaults to 0.
-1. Render the number of likes somewhere in your component.
-1. Create a method, `like` that adds 1 to the state's number of `likes`.
-1. Create a button that triggers the above function.
-
 <!--12:25 5 minutes -->
 
 ## What's Next?
