@@ -13,11 +13,34 @@ Market: SF
 
 <!--Hook: So at this point, you're familiar with Angular which is one of many front-end frameworks.  Today, we'll talk about React, another incredibly popular front-end framework maintained mainly by Facebook. It fits with the philosophy that Taylor at Spruce mentioned over the weekend: it is a tool that does a lot of front-end work for you so you don't have to reinvent the wheel.  For those interested in putting it into your project 4 after this class, please follow up with me.-->
 
-# ReactJS
+## What is ReactJS?
 
-### Why is this important?
-<!-- framing the "why" in big-picture/real world examples -->
-*This workshop is important because:*
+React is a library used to craft modern day UI and create views for the front-end in web, client and native applications.
+
+> **Selling Point:** By modeling small compatible components that focus on just rendering a view, we as developers can move business logic out of the DOM, and therefore improve our app's performance, maintainability, modularity, and readability.
+
+### Some History
+
+The first thing most people hear about React is "Facebook uses it."
+* First used by Facebook in 2011. Then Instagram in 2012.
+* Went open source in May 2013.
+
+React was born out of Facebook's frustration with the traditional MVC model and how...
+  * Re-rendering one thing meant re-rendering much of the page.
+  * That had negative implications on processing power and ultimately user experience, which at times became glitchy and laggy.
+
+> If you want to get a taste of what React's all about, [here's an introduction from React.js Conf 2015](https://www.youtube.com/watch?v=KVZ-P-ZI6W4&feature=youtu.be&t=510). Recommend starting around the 8:35 mark and watching until 16:30.
+
+### React in MVC
+
+React's role is to use data to render a UI. This means that React can also coexist with other Javascript frameworks - including Angular! Let them handle the models and controllers, and have React sort out the views.
+
+If you're interested in exactly HOW Angular compares to React, [this article](https://www.quora.com/profile/Pete-Hunt/Posts/Facebooks-React-vs-AngularJS-A-Closer-Look) is a good place to start. To distill it to a couple bullet points:
+
+- Angular is a **framework** that handles the entire frontend MVC. It scales incredibly well assuming there are no other changes to your tech stack. It is huge, powerful, and complex - it requires additional languages (Typescript) and has several new concepts (modules, controllers, scopes, and directives, etc) to learn.
+- React is a **library** written entirely in native JS with a JSX compiler, with only two main concepts (components and state). Focused mainly on the user interface, it creates reusable UI components that are fast and smooth. It's simple, and accomodates extensive alterations to your stack.
+- Combining React AND Angular will either turn out like [this](http://images5.fanpop.com/image/photos/24500000/Dark-Claw-amalgam-comics-24570126-1024-768.jpg) or like [this](https://s-media-cache-ak0.pinimg.com/originals/d7/67/2a/d7672a682d24c8f3f9ed29e3233b7449.jpg).
+
 
 React is a library that Facebook invented to help build custom HTML elements. React provides a declarative library that keeps the DOM (the view) in sync with your data (the model). It is concerned only with the **V** in **MVC** and as a result can be used in conjunction with other libraries to help manage state.
 
