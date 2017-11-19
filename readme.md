@@ -158,7 +158,7 @@ export default HelloWorld
 
 So we've created the template for our component. But how do we actually render it?
 
-The below `.render` function takes two arguments:
+We'll need ti call a render `.render` function from our `app/index.jsx`. It takes two arguments:
 
 * The component to render
 * The DOM element to append it to
@@ -170,7 +170,7 @@ ReactDOM.render(
 );
 ```
 
-In your `app/index.jsx` let's import the new component and render it to the DOM. `React` is used for creating web components, while `ReactDOM` (used above) is used for actually rendering these elements to the DOM. Let's import our component and `ReactDOM` to get this working. It may look something like this:
+In your `app/index.jsx`, let's import the new component and render it to the DOM. `React` is used for creating web components, while `ReactDOM` (used above) is used for actually rendering these elements to the DOM. Let's import our component and `ReactDOM` to get this working. It may look something like this:
 
 ```js
 "use strict"
@@ -186,6 +186,8 @@ ReactDOM.render(
 ```
 
 >Note: It's a good idea to use [`"use strict"`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) as it is a restricted variant of JavaScript that eliminates some of JavaScript's silent errors by changing them to throw errors.
+
+Refresh to see your Hello World component in its full glory!
 
 <!-- Let devs do this now with their table-partner's name -->
 
@@ -259,7 +261,7 @@ ReactDOM.render(
 
 Create a component called `<Greeting/>` that has two props: `timeOfDay` and `object`, such that its interface would be `<Greeting timeOfDay="night" object="moon">` and it would print out "Goodnight moon" in an `h3`. Append it to a `div` with the `id` `greeting-component`. (Hint: don't forget to create that div in your HTML.)
 
-<!--Example solution
+<details><summary>Example</summary>
 
 ```js
 class Greeting extends React.Component {
@@ -277,8 +279,7 @@ ReactDOM.render(
   document.getElementById("greeting-component")
 )
 ```
-
--->
+</details>
 
 <!--Actually 1:45 -->
 <!--11:25 10 minutes -->
@@ -295,7 +296,7 @@ class ProfilePic extends React.Component {
   render() {
     return (
       <a {...this.props}>
-        <img style={{width: '200px'}} src="http://bit.ly/1MItzOs"/>
+        <img style={{width: '200px'}} src="https://i.imgur.com/9fXIbBz.jpg"/>
       </a>
     )
   }
@@ -353,146 +354,11 @@ class ProfilePic extends React.Component {
 
 ### Challenge: Mr Cat's Profile
 
-* Pass an `id` into the `ProfilePic` component that is `"mr-cat"`
+* Pass an `id` into the `a` tag inside the `ProfilePic` component that is `"mr-cat"`
 * Pass a `p` child, below the `h3`, into the `ProfilePic` component with the class `"bio"` that contains a brief description of this kitty.
 
 <!-- 11:40 10 minutes -->
 
-## Exercise: A Blog Post
-
-<!--Actually 2:41 when turning over to devs -->
-
-Let's practice what we've learned so far by building a `Post` component for our blog.
-
-Make and render a custom `<Post/>` component with the attributes `title`, `author`, and `body`. The exact HTML/CSS composition of the component is up to you.
-
-<!--Example solution
-
-```js
-class Post extends React.Component {
-  render() {
-    return (
-      <div className="post">
-        <h2>{this.props.title}</h2>
-        <h4>By {this.props.author}</h4>
-        <p>{this.props.body}</p>
-      </div>
-    )
-  }
-}
-```
-
-```js
-ReactDOM.render(
-  <Post
-    title={"Are you feline me?"}
-    author={"Kitkat the Cat"}
-    body={"Cause I'm purrfect"}
-  />,
-  document.getElementById("blog-component")
-)
-```
-
--->
-
-<!-- 11:50 10 minutes -->
-
-What if we wanted to add an array of comments to the post?
-
-<!--
-
-```js
-ReactDOM.render(
-  <Post
-    title={"Are you feline me?"}
-    author={"Kitkat the Cat"}
-    body={"Cause I'm purrfect"}
-    comments={["first!", "more gifs plz", "i haz had enuf ov dis >_<"]}
-  />,
-  document.getElementById("blog-component")
-)
-```
--->
-
-<details>
-<summary>Let's try map!</summary>
-
-```js
-class Post extends React.Component {
-  render() {
-    return (
-      <div className="post">
-        <h2>{this.props.title}</h2>
-        <h4>By {this.props.author}</h4>
-        <p>{this.props.body}</p>
-        <h3>Comments</h3>
-        <ul> {
-          this.props.comments.map((comment, index) => {
-            return <li key={index}>{comment}</li>
-          })
-      }</ul>
-      </div>
-    )
-  }
-}
-```
-
->Note: when iterating through a collection, React needs to put a `key` on each item with a unique index for that collection (otherwise errors will appear). `.map`'s second argument to its callback is the (unique) index, so that works just fine.
-
-</details>
-
-<!--Actually 3:02 -- break time -->
-<!--Actually 3:16 -->
-### Embedded Components
-
-* What if there was a comment component we could abstract some of this logic to?
-
-* Let's reference a comment using an embedded `<Comment/>` component inside of PostView's render method.
-
-<!--12:00 15 minutes -->
-<!-- At this point, figured a code-along was better than nothing--they were fried -->
-
-### Challenge: Add Embedded Comments To Blog
-
-1. Create a `Comment` component in the same way we did for `Post`.
-* Your `Comment` render method should render a `body` property.
-
-2. Amend your `Post`'s render method so that its return value generates as many `<Comment/>` elements as there are comments.
-* Make sure to pass in the body as an argument to the component.
-
-<!-- Example solution
-
-```js
-class Post extends React.Component {
-  render() {
-    return (
-      <div className="post">
-        <h2>{this.props.title}</h2>
-        <h4>By {this.props.author}</h4>
-        <p>{this.props.body}</p>
-        <h3>Comments</h3>
-          <ul> {
-            this.props.comments.map((comment) => {
-              return <Comment key={index} body={comment}/>
-            })
-          }</ul>
-      </div>
-    )
-  }
-}
-
-class Comment extends React.Component {
-  render() {
-    return (
-      <li>{this.props.body}</li>
-    )
-  }
-}
-```
--->
-
-<!--Actually 3:29 -->
-<!--12:15 10 minutes -->
 
 ## State
 
