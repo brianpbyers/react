@@ -158,7 +158,7 @@ export default HelloWorld
 
 So we've created the template for our component. But how do we actually render it?
 
-We'll need ti call a render `.render` function from our `app/index.jsx`. It takes two arguments:
+We'll need it call a render `.render` function from our `app/index.jsx`. It takes two arguments:
 
 * The component to render
 * The DOM element to append it to
