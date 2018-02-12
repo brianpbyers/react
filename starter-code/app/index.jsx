@@ -2,7 +2,10 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import HelloWorld from './components/hello-world'
+import MoodTracker from './components/hello-world'
 
 
-ReactDOM.render({})
+ReactDOM.render(
+  <MoodTracker name="WDI" mood="hyped" />,
+   document.getElementById('hello-world-component')
+)

@@ -375,10 +375,11 @@ Let's modify our earlier `HelloWorld` example to be a new `MoodTracker` componen
 We will use React's `.createClass` method as opposed to extending standard ES6 classes, as it makes some of this behavior more straightforward.
 
 ```js
-const MoodTracker = React.createClass({
-  getInitialState() {
-    return {points: 1}
-  },
+class MoodTracker extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = { points: 1}
+  }
   render() {
     return (
       <div>
@@ -389,13 +390,13 @@ const MoodTracker = React.createClass({
       </div>
     )
   }
-})
+}
 ```
 
 Next we need to enable the user to change the state of our component. Let's create an `onClick` event that triggers a method `increaseMood` to increment our counter by 1 for each click. Notice that it is important to use the [`.setState`](https://facebook.github.io/react/docs/component-api.html#setstate) method to update the state. Also, we can define the initial state with `getInitialState` a reserved method in React.
 
 ```js
-const MoodTracker = React.createClass({
+class MoodTracker extends React.createClass({
   getInitialState() {
     return {points: 1}
   },
