@@ -418,7 +418,7 @@ class MoodTracker extends React.createClass({
   }
 })
 ```
-
+In order to gain access to `this` we bind it to our method call. Note, this is just one of a handful of ways to assign `this`
 Whenever we run `.setState`, our component runs a **diff** between the current DOM and the virtual DOM node to update the state of the DOM in as few manipulations as possible.
 
 Note that this only replaces the current DOM with parts that have changed. This is super important! We **do not** re-render the entire component. This is one of React's core advantages.
@@ -432,16 +432,18 @@ After 10 clicks, the user should see the counter reset to 1.
 <!--Example solution
 
 ```js
-const MoodTracker = React.createClass({
-  getInitialState() {
-    return {points: 1}
-  },
+class MoodTracker extends React.Component{
+  constructor(props) {
+    super(props)
+    this.state = { points: 1 }
+  }
+
   increaseMood() {
     let newPoints = this.state.points >= 10 ? 1 : this.state.points + 1
     this.setState({
       points: newPoints
     })
-  },
+  }
   render() {
     return (
       <div>
@@ -449,11 +451,11 @@ const MoodTracker = React.createClass({
         <p>On a scale of 1-10</p>
         <p>You are {this.props.mood}</p>
         <p>This much: {this.state.points}</p>
-        <button onClick={this.increaseMood}>Up Your Mood!</button>
+        <button onClick={this.increaseMood.bind(this)}>Up Your Mood!</button>
       </div>
     )
   }
-})
+}
 ```
 
 -->
