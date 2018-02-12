@@ -372,7 +372,6 @@ State is similar to props, state is *meant to be changed*. We can access state v
 
 Let's modify our earlier `HelloWorld` example to be a new `MoodTracker` component. There will be a mood displayed and  eventually a user will click a button to indicate on a scale of 1-10 how much of that mood they are feeling.
 
-We will use React's `.createClass` method as opposed to extending standard ES6 classes, as it makes some of this behavior more straightforward.
 
 ```js
 class MoodTracker extends React.Component{
@@ -393,13 +392,14 @@ class MoodTracker extends React.Component{
 }
 ```
 
-Next we need to enable the user to change the state of our component. Let's create an `onClick` event that triggers a method `increaseMood` to increment our counter by 1 for each click. Notice that it is important to use the [`.setState`](https://facebook.github.io/react/docs/component-api.html#setstate) method to update the state. Also, we can define the initial state with `getInitialState` a reserved method in React.
+Next we need to enable the user to change the state of our component. Let's create an `onClick` event that triggers a method `increaseMood` to increment our counter by 1 for each click. Notice that it is important to use the [`.setState`](https://facebook.github.io/react/docs/component-api.html#setstate) method to update the state. Also, we can only define the initial state within a `constructor` a reserved method in React.
 
 ```js
 class MoodTracker extends React.createClass({
-  getInitialState() {
-    return {points: 1}
-  },
+  constructor(props){
+    super(props)
+    this.state = {points: 1}
+  }
   increaseMood() {
     this.setState({
       points: this.state.points + 1
@@ -412,7 +412,7 @@ class MoodTracker extends React.createClass({
         <p>On a scale of 1-10</p>
         <p>You are {this.props.mood}</p>
         <p>This much: {this.state.points}</p>
-        <button onClick={this.increaseMood}>Up Your Mood!</button>
+        <button onClick={this.increaseMood.bind(this)}>Up Your Mood!</button>
       </div>
     )
   }
