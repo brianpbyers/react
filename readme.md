@@ -158,7 +158,7 @@ export default HelloWorld
 
 So we've created the template for our component. But how do we actually render it?
 
-We'll need ti call a render `.render` function from our `app/index.jsx`. It takes two arguments:
+We'll need it call a render `.render` function from our `app/index.jsx`. It takes two arguments:
 
 * The component to render
 * The DOM element to append it to
@@ -372,13 +372,13 @@ State is similar to props, state is *meant to be changed*. We can access state v
 
 Let's modify our earlier `HelloWorld` example to be a new `MoodTracker` component. There will be a mood displayed and  eventually a user will click a button to indicate on a scale of 1-10 how much of that mood they are feeling.
 
-We will use React's `.createClass` method as opposed to extending standard ES6 classes, as it makes some of this behavior more straightforward.
 
 ```js
-const MoodTracker = React.createClass({
-  getInitialState() {
-    return {points: 1}
-  },
+class MoodTracker extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = { points: 1}
+  }
   render() {
     return (
       <div>
@@ -389,16 +389,17 @@ const MoodTracker = React.createClass({
       </div>
     )
   }
-})
+}
 ```
 
-Next we need to enable the user to change the state of our component. Let's create an `onClick` event that triggers a method `increaseMood` to increment our counter by 1 for each click. Notice that it is important to use the [`.setState`](https://facebook.github.io/react/docs/component-api.html#setstate) method to update the state. Also, we can define the initial state with `getInitialState` a reserved method in React.
+Next we need to enable the user to change the state of our component. Let's create an `onClick` event that triggers a method `increaseMood` to increment our counter by 1 for each click. Notice that it is important to use the [`.setState`](https://facebook.github.io/react/docs/component-api.html#setstate) method to update the state. Also, we can only define the initial state within a `constructor` a reserved method in React.
 
 ```js
-const MoodTracker = React.createClass({
-  getInitialState() {
-    return {points: 1}
-  },
+class MoodTracker extends React.createClass({
+  constructor(props){
+    super(props)
+    this.state = {points: 1}
+  }
   increaseMood() {
     this.setState({
       points: this.state.points + 1
@@ -411,13 +412,13 @@ const MoodTracker = React.createClass({
         <p>On a scale of 1-10</p>
         <p>You are {this.props.mood}</p>
         <p>This much: {this.state.points}</p>
-        <button onClick={this.increaseMood}>Up Your Mood!</button>
+        <button onClick={this.increaseMood.bind(this)}>Up Your Mood!</button>
       </div>
     )
   }
 })
 ```
-
+In order to gain access to `this` we bind it to our method call. Note, this is just one of a handful of ways to assign `this`
 Whenever we run `.setState`, our component runs a **diff** between the current DOM and the virtual DOM node to update the state of the DOM in as few manipulations as possible.
 
 Note that this only replaces the current DOM with parts that have changed. This is super important! We **do not** re-render the entire component. This is one of React's core advantages.
@@ -431,16 +432,18 @@ After 10 clicks, the user should see the counter reset to 1.
 <!--Example solution
 
 ```js
-const MoodTracker = React.createClass({
-  getInitialState() {
-    return {points: 1}
-  },
+class MoodTracker extends React.Component{
+  constructor(props) {
+    super(props)
+    this.state = { points: 1 }
+  }
+
   increaseMood() {
     let newPoints = this.state.points >= 10 ? 1 : this.state.points + 1
     this.setState({
       points: newPoints
     })
-  },
+  }
   render() {
     return (
       <div>
@@ -448,11 +451,11 @@ const MoodTracker = React.createClass({
         <p>On a scale of 1-10</p>
         <p>You are {this.props.mood}</p>
         <p>This much: {this.state.points}</p>
-        <button onClick={this.increaseMood}>Up Your Mood!</button>
+        <button onClick={this.increaseMood.bind(this)}>Up Your Mood!</button>
       </div>
     )
   }
-})
+}
 ```
 
 -->
